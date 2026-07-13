@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ちーちゃんに会えるまで</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    width:90%;
+    max-width:420px;
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+h1{
+    color:#ff5c93;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:30px;
+}
+
+#countdown{
+    font-size:2rem;
+    font-weight:bold;
+    color:#ff3d7f;
+    line-height:1.6;
+}
+
+.heart{
+    font-size:50px;
+    animation:beat 1s infinite;
+    margin-bottom:20px;
+}
+
+.message{
+    margin-top:30px;
+    color:#555;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="heart">💙</div>
+
+<h1>ちーちゃんに会えるまで</h1>
+
+<p class="subtitle">早く会いたい!</p>
+
+<div id="countdown"></div>
+
+<p class="message">
+毎日頑張ってるちーちゃんへ。<br>
+あと少し、一緒に頑張ろうね
+</p>
+
+</div>
+
+<script>
+
+// ↓↓↓ここを変更↓↓↓
+const meetingDate = new Date("2026-08-08T12:00:00");
+// ↑↑↑ここを変更↑↑↑
+
+function updateCountdown(){
+
+    const now = new Date();
+
+    const diff = meetingDate - now;
+
+    if(diff <= 0){
+        document.getElementById("countdown").innerHTML =
+        "🎉 今日会えるね！";
+        return;
+    }
+
+    const days = Math.floor(diff/(1000*60*60*24));
+    const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+    const seconds = Math.floor((diff%(1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML =
+    `${days}日<br>${hours}時間 ${minutes}分 ${seconds}秒`;
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+</script>
+
+</body>
+</html>
