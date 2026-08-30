@@ -12,14 +12,26 @@
 /* =========================
    ページ全体
 ========================= */
+
 body{
     margin:0;
-    font-family:"Hiragino Sans","Yu Gothic",sans-serif;
 
-    background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+    font-family:
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd6e7,
+            #ffeef5
+        );
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     min-height:100vh;
@@ -30,139 +42,255 @@ body{
 }
 
 
+
 /* =========================
    カード
 ========================= */
+
 .card{
+
     width:85%;
+
     max-width:420px;
 
     background:white;
 
     border-radius:25px;
 
-    padding:35px 25px;
+    padding:30px 25px;
 
     text-align:center;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.15);
 
     position:relative;
+
     z-index:5;
 }
 
 
+
 /* =========================
-   ハート
+   上のハート
 ========================= */
+
 .heart{
+
     font-size:45px;
-    animation:beat 1s infinite;
+
+    animation:
+        beat 1s infinite;
+
     margin-bottom:10px;
 }
 
-
-/* =========================
-   画像
-========================= */
-.micky{
-    width:160px;
-    max-width:60%;
-    height:auto;
-
-    margin:5px auto 20px;
-
-    display:block;
-
-    animation:float 3s ease-in-out infinite;
-}
-
-/* =========================
-   大量に降るハート
-========================= */
-
-.rain-heart{
-    position:fixed;
-    top:-50px;
-
-    font-size:25px;
-
-    pointer-events:none;
-
-    z-index:300;
-
-    animation:heartRain linear forwards;
-}
-
-
-@keyframes heartRain{
-
-    0%{
-        transform:
-            translateY(-50px)
-            rotate(0deg);
-
-        opacity:1;
-    }
-
-    100%{
-        transform:
-            translateY(110vh)
-            rotate(360deg);
-
-        opacity:0.9;
-    }
-
-}
 
 
 /* =========================
    タイトル
 ========================= */
+
 h1{
+
     color:#ff5c93;
+
     margin-top:5px;
+
     margin-bottom:10px;
+
     font-size:1.7rem;
 }
+
 
 
 /* =========================
    サブタイトル
 ========================= */
+
 .subtitle{
+
     color:#666;
-    margin-bottom:25px;
+
+    margin-bottom:20px;
 }
+
+
+
+/* =========================
+   micky.png
+========================= */
+
+.micky{
+
+    width:160px;
+
+    max-width:60%;
+
+    height:auto;
+
+    display:block;
+
+    margin:
+        5px auto 20px;
+
+    animation:
+        float 3s
+        ease-in-out
+        infinite;
+}
+
 
 
 /* =========================
    カウントダウン
 ========================= */
+
 #countdown{
+
     font-size:2rem;
+
     font-weight:bold;
+
     color:#ff3d7f;
+
     line-height:1.6;
 }
 
 
+
 /* =========================
-   メッセージ
+   通常メッセージ
 ========================= */
+
 .message{
-    margin-top:30px;
+
+    margin-top:25px;
+
     color:#555;
+
     line-height:1.8;
 }
 
 
+
 /* =========================
-   終了後メッセージ
+   好きボタン
 ========================= */
+
+.like-area{
+
+    margin-top:20px;
+}
+
+
+.like-button{
+
+    border:none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6aa9ff,
+            #8ec5ff
+        );
+
+    color:white;
+
+    font-size:1.1rem;
+
+    font-weight:bold;
+
+    padding:
+        13px 28px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(80,150,255,.3);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+
+.like-button:hover{
+
+    transform:
+        scale(1.05);
+
+    box-shadow:
+        0 7px 20px
+        rgba(80,150,255,.4);
+}
+
+
+.like-button:active{
+
+    transform:
+        scale(.88);
+}
+
+
+
+/* =========================
+   ボタンから飛び出すハート
+========================= */
+
+.flying-heart{
+
+    position:fixed;
+
+    font-size:28px;
+
+    pointer-events:none;
+
+    z-index:300;
+
+    animation:
+        flyHeart
+        1.3s
+        ease-out
+        forwards;
+}
+
+
+
+/* =========================
+   10回ごとに降るハート
+========================= */
+
+.rain-heart{
+
+    position:fixed;
+
+    top:-50px;
+
+    pointer-events:none;
+
+    z-index:250;
+
+    animation:
+        heartRain
+        linear
+        forwards;
+}
+
+
+
+/* =========================
+   カウントダウン終了後
+   特別メッセージ
+========================= */
+
 .final-message{
 
-    font-size:1.8rem;
+    font-size:1.7rem;
 
     font-weight:bold;
 
@@ -170,21 +298,28 @@ h1{
 
     line-height:1.7;
 
-    animation:messageAppear 1s ease forwards;
+    animation:
+        messageAppear
+        1s ease
+        forwards;
 }
+
 
 
 /* =========================
    画面フラッシュ
 ========================= */
+
 .flash{
 
     position:fixed;
 
     top:0;
+
     left:0;
 
     width:100%;
+
     height:100%;
 
     background:white;
@@ -193,20 +328,23 @@ h1{
 
     pointer-events:none;
 
-    z-index:100;
-
+    z-index:1000;
 }
 
 
-/* フラッシュ発動 */
 .flash.active{
-    animation:flashAnimation 0.8s ease;
+
+    animation:
+        flashAnimation
+        .8s ease;
 }
+
 
 
 /* =========================
-   紙吹雪
+   カウントダウン終了時の紙吹雪
 ========================= */
+
 .confetti{
 
     position:fixed;
@@ -214,20 +352,24 @@ h1{
     top:-20px;
 
     width:12px;
+
     height:12px;
 
-    z-index:50;
+    z-index:200;
 
     pointer-events:none;
 
-    animation:fall linear forwards;
+    animation:
+        confettiFall
+        linear
+        forwards;
 }
 
 
-/* ハート型紙吹雪 */
 .confetti.heart-confetti{
 
     width:auto;
+
     height:auto;
 
     font-size:20px;
@@ -236,133 +378,11 @@ h1{
 }
 
 
+
 /* =========================
-   アニメーション
+   終了後の背景
 ========================= */
 
-
-/* ハート */
-@keyframes beat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.15);
-    }
-
-}
-
-
-/* 通常時のふわふわ */
-@keyframes float{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-
-}
-
-
-/* 終了時 micky ポンッ */
-.micky.celebrate{
-
-    animation:pop 1.2s ease forwards;
-
-}
-
-
-@keyframes pop{
-
-    0%{
-        transform:scale(1);
-    }
-
-    35%{
-        transform:scale(1.45);
-    }
-
-    60%{
-        transform:scale(0.95);
-    }
-
-    80%{
-        transform:scale(1.15);
-    }
-
-    100%{
-        transform:scale(1.05);
-    }
-
-}
-
-
-/* メッセージ出現 */
-@keyframes messageAppear{
-
-    0%{
-        opacity:0;
-        transform:translateY(20px) scale(0.9);
-    }
-
-    100%{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-
-}
-
-
-/* 画面フラッシュ */
-@keyframes flashAnimation{
-
-    0%{
-        opacity:0;
-    }
-
-    30%{
-        opacity:0.95;
-    }
-
-    100%{
-        opacity:0;
-    }
-
-}
-
-
-/* 紙吹雪が落ちる */
-@keyframes fall{
-
-    0%{
-        transform:
-            translateY(-20px)
-            rotate(0deg);
-
-        opacity:1;
-    }
-
-    100%{
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-
-        opacity:0.8;
-    }
-
-}
-
-
-/* 終了後の背景 */
 body.celebration{
 
     background:
@@ -372,32 +392,277 @@ body.celebration{
             #fff0f7,
             #dcecff
         );
-
 }
 
 
-/* スマホ */
+
+/* =========================
+   アニメーション
+========================= */
+
+
+/* 上のハート */
+@keyframes beat{
+
+    0%,100%{
+
+        transform:
+            scale(1);
+    }
+
+    50%{
+
+        transform:
+            scale(1.15);
+    }
+}
+
+
+
+/* mickyのふわふわ */
+@keyframes float{
+
+    0%{
+
+        transform:
+            translateY(0);
+    }
+
+    50%{
+
+        transform:
+            translateY(-12px);
+    }
+
+    100%{
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+
+/* カウントダウン終了時
+   mickyがポンッ
+*/
+
+.micky.celebrate{
+
+    animation:
+        pop
+        1.2s
+        ease
+        forwards;
+}
+
+
+@keyframes pop{
+
+    0%{
+
+        transform:
+            scale(1);
+    }
+
+    35%{
+
+        transform:
+            scale(1.45);
+    }
+
+    60%{
+
+        transform:
+            scale(.95);
+    }
+
+    80%{
+
+        transform:
+            scale(1.15);
+    }
+
+    100%{
+
+        transform:
+            scale(1.05);
+    }
+}
+
+
+
+/* 終了メッセージ */
+
+@keyframes messageAppear{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.9);
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+
+/* 画面フラッシュ */
+
+@keyframes flashAnimation{
+
+    0%{
+
+        opacity:0;
+    }
+
+    30%{
+
+        opacity:.95;
+    }
+
+    100%{
+
+        opacity:0;
+    }
+}
+
+
+
+/* カウントダウン終了時の紙吹雪 */
+
+@keyframes confettiFall{
+
+    0%{
+
+        transform:
+            translateY(-20px)
+            rotate(0deg);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:.8;
+    }
+}
+
+
+
+/* 好きボタンから飛ぶ */
+
+@keyframes flyHeart{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,0)
+            scale(.7);
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-60px)
+            scale(1.4);
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-130px)
+            scale(.8);
+    }
+}
+
+
+
+/* 10回ごとのハートの雨 */
+
+@keyframes heartRain{
+
+    0%{
+
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity:.9;
+    }
+}
+
+
+
+/* =========================
+   スマホ対応
+========================= */
+
 @media(max-width:500px){
 
-    #countdown{
-        font-size:1.7rem;
+    .card{
+
+        padding:
+            25px 18px;
     }
 
-    .final-message{
-        font-size:1.5rem;
-    }
 
     h1{
-        font-size:1.5rem;
+
+        font-size:1.45rem;
     }
 
+
     .micky{
+
         width:140px;
+    }
+
+
+    #countdown{
+
+        font-size:1.65rem;
+    }
+
+
+    .final-message{
+
+        font-size:1.4rem;
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -405,33 +670,51 @@ body.celebration{
 
 
 <!-- =========================
-     画面フラッシュ
+     フラッシュ用
 ========================= -->
-<div id="flash" class="flash"></div>
+
+<div
+    id="flash"
+    class="flash">
+</div>
+
 
 
 <!-- =========================
      メインカード
 ========================= -->
+
 <div class="card">
 
 
     <div class="heart">
+
         💙
+
     </div>
 
 
+
     <h1>
+
         ちーちゃんに会えるまで
+
     </h1>
 
 
-    <p class="subtitle" id="subtitle">
+
+    <p
+        class="subtitle"
+        id="subtitle">
+
         早く会いたい!
+
     </p>
 
 
-    <!-- GitHubにアップロードした画像 -->
+
+    <!-- GitHubにある画像 -->
+
     <img
         src="micky.png"
         class="micky"
@@ -440,11 +723,20 @@ body.celebration{
     >
 
 
+
     <!-- カウントダウン -->
-    <div id="countdown"></div>
+
+    <div
+        id="countdown">
+    </div>
 
 
-    <p class="message" id="normalMessage">
+
+    <!-- メッセージ -->
+
+    <p
+        class="message"
+        id="normalMessage">
 
         毎日頑張ってるちーちゃんへ。<br>
 
@@ -453,59 +745,118 @@ body.celebration{
     </p>
 
 
+
+    <!-- =====================
+         好きボタン
+    ====================== -->
+
+    <div class="like-area">
+
+        <button
+            id="likeButton"
+            class="like-button">
+
+            💙 好き！
+
+        </button>
+
+    </div>
+
+
 </div>
 
 
 
 <script>
 
-/* ==============================
+
+/* ==================================
    会える日時
-============================== */
+
+   ★ここを変更すれば日時変更可能
+================================== */
 
 const meetingDate =
     new Date("2026-09-11T17:00:00");
 
 
 
-/* ==============================
-   使用する要素
-============================== */
+/* ==================================
+   要素を取得
+================================== */
 
 const countdown =
-    document.getElementById("countdown");
+    document.getElementById(
+        "countdown"
+    );
+
 
 const micky =
-    document.getElementById("micky");
+    document.getElementById(
+        "micky"
+    );
+
 
 const flash =
-    document.getElementById("flash");
+    document.getElementById(
+        "flash"
+    );
+
 
 const normalMessage =
-    document.getElementById("normalMessage");
+    document.getElementById(
+        "normalMessage"
+    );
+
 
 const subtitle =
-    document.getElementById("subtitle");
+    document.getElementById(
+        "subtitle"
+    );
+
+
+const likeButton =
+    document.getElementById(
+        "likeButton"
+    );
 
 
 
-/* ==============================
-   演出が一度だけ発動するため
-============================== */
+/* ==================================
+   カウントダウン終了演出が
+   何回も発動しないため
+================================== */
 
-let celebrationStarted = false;
+let celebrationStarted =
+    false;
 
 
 
-/* ==============================
+/* ==================================
+   好きボタンを押した回数
+
+   ※画面には表示されません
+================================== */
+
+let likePressCount =
+    0;
+
+
+
+/* ==================================
    カウントダウン
-============================== */
+================================== */
 
 function updateCountdown(){
 
-    const now = new Date();
 
-    const diff = meetingDate - now;
+    const now =
+        new Date();
+
+
+    const diff =
+        meetingDate - now;
+
 
 
     /* =========================
@@ -514,103 +865,155 @@ function updateCountdown(){
 
     if(diff <= 0){
 
+
         startCelebration();
 
+
         return;
+
     }
 
 
+
     const days =
+
         Math.floor(
-            diff / (1000*60*60*24)
+
+            diff /
+            (1000*60*60*24)
+
         );
+
 
 
     const hours =
+
         Math.floor(
-            (diff%(1000*60*60*24))
-            /(1000*60*60)
+
+            (
+                diff %
+                (1000*60*60*24)
+            )
+            /
+            (1000*60*60)
+
         );
+
 
 
     const minutes =
+
         Math.floor(
-            (diff%(1000*60*60))
-            /(1000*60)
+
+            (
+                diff %
+                (1000*60*60)
+            )
+            /
+            (1000*60)
+
         );
+
 
 
     const seconds =
+
         Math.floor(
-            (diff%(1000*60))
-            /1000
+
+            (
+                diff %
+                (1000*60)
+            )
+            /
+            1000
+
         );
+
 
 
     countdown.innerHTML =
 
         `${days}日<br>
-        ${hours}時間 ${minutes}分 ${seconds}秒`;
+        ${hours}時間
+        ${minutes}分
+        ${seconds}秒`;
 
 }
 
 
 
-/* ==============================
-   お祝い演出
-============================== */
+/* ==================================
+   カウントダウン終了演出
+================================== */
 
 function startCelebration(){
 
 
-    /* 一度しか実行しない */
     if(celebrationStarted){
+
         return;
+
     }
 
 
-    celebrationStarted = true;
+    celebrationStarted =
+        true;
 
-
-    /* =========================
-       ① 画面が一瞬光る
-    ========================= */
-
-    flash.classList.add("active");
 
 
     /* =========================
-       背景変更
+       ① 画面が光る
     ========================= */
+
+    flash.classList.add(
+        "active"
+    );
+
+
+
+    /* 背景変更 */
 
     document.body.classList.add(
         "celebration"
     );
 
 
+
     /* =========================
        ② 紙吹雪
     ========================= */
 
-    setTimeout(()=>{
+    setTimeout(
 
-        createConfetti();
+        ()=>{
 
-    },300);
+            createConfetti();
+
+        },
+
+        300
+
+    );
 
 
 
     /* =========================
-       ③ micky ポンッ
+       ③ mickyがポンッ
     ========================= */
 
-    setTimeout(()=>{
+    setTimeout(
 
-        micky.classList.add(
-            "celebrate"
-        );
+        ()=>{
 
-    },700);
+            micky.classList.add(
+                "celebrate"
+            );
+
+        },
+
+        700
+
+    );
 
 
 
@@ -618,43 +1021,55 @@ function startCelebration(){
        ④ メッセージ変更
     ========================= */
 
-    setTimeout(()=>{
+    setTimeout(
+
+        ()=>{
 
 
-        subtitle.innerHTML =
-            "やっと会えるね！";
+            subtitle.innerHTML =
+
+                "やっと会えるね！";
 
 
-        countdown.innerHTML =
 
-        `<div class="final-message">
+            countdown.innerHTML =
 
-            🎉 ついに今日だよ！ 🎉
-            <br>
+                `<div class="final-message">
 
-            ちーちゃんに会える！
-            <br>
+                    🎉 ついに今日だよ！ 🎉
 
-            愛してる 💙
+                    <br>
 
-        </div>`;
+                    ちーちゃんに会える！
 
+                    <br>
 
-        normalMessage.innerHTML =
+                    愛してる 💙
 
-            "今日まで本当にお疲れさま。<br>" +
-            "いっぱい楽しもうね 💙";
+                </div>`;
 
 
-    },1200);
+
+            normalMessage.innerHTML =
+
+                "今日まで本当にお疲れさま。<br>" +
+
+                "いっぱい楽しもうね 💙";
+
+
+        },
+
+        1200
+
+    );
 
 }
 
 
 
-/* ==============================
-   紙吹雪を作る
-============================== */
+/* ==================================
+   終了時の紙吹雪
+================================== */
 
 function createConfetti(){
 
@@ -662,21 +1077,33 @@ function createConfetti(){
     const colors = [
 
         "#ff5c93",
+
         "#ff9abb",
+
         "#6aa9ff",
+
         "#ffd54f",
+
         "#a78bfa",
+
         "#7dd3fc"
 
     ];
 
 
-    /* 紙吹雪の数 */
-    for(let i=0;i<100;i++){
+
+    for(
+        let i=0;
+        i<100;
+        i++
+    ){
 
 
         const confetti =
-            document.createElement("div");
+
+            document.createElement(
+                "div"
+            );
 
 
         confetti.classList.add(
@@ -684,74 +1111,110 @@ function createConfetti(){
         );
 
 
-        /* ランダムでハートにする */
-        const isHeart =
-            Math.random() < 0.25;
 
+        const isHeart =
+
+            Math.random()
+            <
+            0.30;
+
+
+
+        /* ハートにする */
 
         if(isHeart){
+
 
             confetti.classList.add(
                 "heart-confetti"
             );
 
 
-            confetti.innerHTML =
+            confetti.textContent =
 
-                Math.random() > 0.5
+                Math.random() > .5
+
                 ? "💙"
+
                 : "💗";
 
         }
 
+
+        /* 普通の紙吹雪 */
+
         else{
+
 
             confetti.style.backgroundColor =
 
                 colors[
                     Math.floor(
                         Math.random()
-                        *colors.length
+                        *
+                        colors.length
                     )
                 ];
 
         }
 
 
+
         /* 横位置 */
+
         confetti.style.left =
 
-            Math.random()*100 + "vw";
+            Math.random()*100
+            +
+            "vw";
 
 
-        /* 落ちる速度 */
+
+        /* 落下時間 */
+
         confetti.style.animationDuration =
 
-            (3 + Math.random()*3)
-            + "s";
+            (
+                3 +
+                Math.random()*3
+            )
+            +
+            "s";
 
 
-        /* 少しずつ開始時間をずらす */
+
+        /* 開始時間 */
+
         confetti.style.animationDelay =
 
             Math.random()*1.5
-            + "s";
+            +
+            "s";
 
 
-        /* サイズ */
-        const size =
-            7 + Math.random()*10;
 
+        /* 大きさ */
 
         if(!isHeart){
 
+
+            const size =
+
+                7 +
+                Math.random()*10;
+
+
             confetti.style.width =
-                size+"px";
+
+                size + "px";
+
 
             confetti.style.height =
-                size+"px";
+
+                size + "px";
 
         }
+
 
 
         document.body.appendChild(
@@ -759,12 +1222,20 @@ function createConfetti(){
         );
 
 
-        /* 終わった紙吹雪を削除 */
-        setTimeout(()=>{
 
-            confetti.remove();
+        /* 終わったら削除 */
 
-        },7000);
+        setTimeout(
+
+            ()=>{
+
+                confetti.remove();
+
+            },
+
+            7000
+
+        );
 
     }
 
@@ -772,84 +1243,261 @@ function createConfetti(){
 
 
 
-/* ==============================
-   最初の実行
-============================== */
+/* ==================================
+   好きボタン
+================================== */
 
-updateCountdown();
+likeButton.addEventListener(
 
+    "click",
 
-/* ==============================
-   1秒ごとに更新
-============================== */
-
-const timer =
-    setInterval(()=>{
-
-        updateCountdown();
+    function(){
 
 
-        /* 終了したらタイマー停止 */
-        if(celebrationStarted){
+        /* 内部だけでカウント */
 
-            clearInterval(timer);
+        likePressCount++;
+
+
+
+        /* 普通のハート */
+
+        createFlyingHeart();
+
+
+
+        /* =========================
+           10回ごとに
+           大量ハート
+        ========================= */
+
+        if(
+            likePressCount % 10 === 0
+        ){
+
+
+            createHeartRain();
 
         }
 
-    },1000);
+    }
+
+);
 
 
-/* ==============================
-   好きボタン
-============================== */
 
-const likeButton =
-    document.getElementById("likeButton");
+/* ==================================
+   ボタンからハートが飛び出す
+================================== */
 
-const likeCount =
-    document.getElementById("likeCount");
-
-let likes = 0;
+function createFlyingHeart(){
 
 
-likeButton.addEventListener(
-    "click",
-    function(){
+    const rect =
 
-        /* 好きの数を増やす */
-        likes++;
-
-        likeCount.textContent = likes;
+        likeButton
+        .getBoundingClientRect();
 
 
-        /* ボタンの位置を取得 */
-        const rect =
-            likeButton.getBoundingClientRect();
 
+    const heart =
 
-        /* ハートを作る */
-        const heart =
-            document.createElement("div");
-
-        heart.classList.add(
-            "flying-heart"
+        document.createElement(
+            "div"
         );
 
+
+
+    heart.classList.add(
+        "flying-heart"
+    );
+
+
+
+    const hearts = [
+
+        "💙",
+
+        "💗",
+
+        "💕",
+
+        "💖"
+
+    ];
+
+
+
+    heart.textContent =
+
+        hearts[
+            Math.floor(
+                Math.random()
+                *
+                hearts.length
+            )
+        ];
+
+
+
+    /* 左右を少しランダムに */
+
+    heart.style.left =
+
+        rect.left
+        +
+        rect.width/2
+        +
+        (
+            Math.random()*40
+            -
+            20
+        )
+        +
+        "px";
+
+
+
+    heart.style.top =
+
+        rect.top
+        +
+        "px";
+
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+
+    setTimeout(
+
+        ()=>{
+
+            heart.remove();
+
+        },
+
+        1300
+
+    );
+
+}
+
+
+
+/* ==================================
+   10回ごとの大量ハート
+================================== */
+
+function createHeartRain(){
+
+
+    const hearts = [
+
+        "💙",
+
+        "💗",
+
+        "💕",
+
+        "💖",
+
+        "💓",
+
+        "💞",
+
+        "💘"
+
+    ];
+
+
+
+    /* ハートを80個作る */
+
+    for(
+        let i=0;
+        i<80;
+        i++
+    ){
+
+
+        const heart =
+
+            document.createElement(
+                "div"
+            );
+
+
+
+        heart.classList.add(
+            "rain-heart"
+        );
+
+
+
+        /* ハートの種類 */
+
         heart.textContent =
-            Math.random() > 0.5
-            ? "💙"
-            : "💗";
+
+            hearts[
+                Math.floor(
+                    Math.random()
+                    *
+                    hearts.length
+                )
+            ];
 
 
-        /* ボタンの真上から出す */
+
+        /* 横の位置 */
+
         heart.style.left =
-            rect.left +
-            rect.width / 2 +
+
+            Math.random()*100
+            +
+            "vw";
+
+
+
+        /* 大きさ */
+
+        heart.style.fontSize =
+
+            (
+                15
+                +
+                Math.random()*25
+            )
+            +
             "px";
 
-        heart.style.top =
-            rect.top +
-            "px";
+
+
+        /* 落下速度 */
+
+        heart.style.animationDuration =
+
+            (
+                2.5
+                +
+                Math.random()*3
+            )
+            +
+            "s";
+
+
+
+        /* 落ちるタイミング */
+
+        heart.style.animationDelay =
+
+            Math.random()*1.5
+            +
+            "s";
+
 
 
         document.body.appendChild(
@@ -857,15 +1505,67 @@ likeButton.addEventListener(
         );
 
 
-        /* アニメーション終了後削除 */
-        setTimeout(()=>{
 
-            heart.remove();
+        /* 終了後削除 */
 
-        },1300);
+        setTimeout(
+
+            ()=>{
+
+                heart.remove();
+
+            },
+
+            7000
+
+        );
 
     }
-);
+
+}
+
+
+
+/* ==================================
+   最初のカウントダウン表示
+================================== */
+
+updateCountdown();
+
+
+
+/* ==================================
+   1秒ごとに更新
+================================== */
+
+const timer =
+
+    setInterval(
+
+        ()=>{
+
+
+            updateCountdown();
+
+
+
+            if(
+                celebrationStarted
+            ){
+
+
+                clearInterval(
+                    timer
+                );
+
+            }
+
+
+        },
+
+        1000
+
+    );
 
 
 </script>
