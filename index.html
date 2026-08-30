@@ -1,99 +1,250 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ちーちゃんに会えるまで</title>
 
 <style>
+
+/* =========================
+   ページ全体
+========================= */
 body{
     margin:0;
     font-family:"Hiragino Sans","Yu Gothic",sans-serif;
-    background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+
+    background:linear-gradient(
+        135deg,
+        #ffd6e7,
+        #ffeef5
+    );
+
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
 
-    .micky{
-    width:100px;
-    height:auto;
-    margin-bottom:10px;
-    }
-    
+    min-height:100vh;
 }
 
+
+/* =========================
+   カード
+========================= */
 .card{
-    width:90%;
+    width:85%;
     max-width:420px;
+
     background:white;
+
     border-radius:25px;
-    padding:35px;
+
+    padding:35px 25px;
+
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.15);
 }
 
-h1{
-    color:#ff5c93;
+
+/* =========================
+   ハート
+========================= */
+.heart{
+    font-size:45px;
+
+    animation:beat 1s infinite;
+
     margin-bottom:10px;
 }
 
+
+/* =========================
+   micky.png
+========================= */
+.micky{
+
+    width:160px;
+
+    max-width:60%;
+
+    height:auto;
+
+    margin:5px auto 20px;
+
+    display:block;
+
+    /* ふわふわアニメーション */
+    animation:float 3s ease-in-out infinite;
+
+}
+
+
+/* =========================
+   タイトル
+========================= */
+h1{
+
+    color:#ff5c93;
+
+    margin-top:5px;
+
+    margin-bottom:10px;
+
+    font-size:1.7rem;
+}
+
+
+/* =========================
+   サブタイトル
+========================= */
 .subtitle{
+
     color:#666;
-    margin-bottom:30px;
+
+    margin-bottom:25px;
+
 }
 
+
+/* =========================
+   カウントダウン
+========================= */
 #countdown{
+
     font-size:2rem;
+
     font-weight:bold;
+
     color:#ff3d7f;
+
     line-height:1.6;
+
 }
 
-.heart{
-    font-size:50px;
-    animation:beat 1s infinite;
-    margin-bottom:20px;
-}
 
+/* =========================
+   メッセージ
+========================= */
 .message{
+
     margin-top:30px;
+
     color:#555;
+
+    line-height:1.8;
+
 }
 
+
+/* =========================
+   ハートのアニメーション
+========================= */
 @keyframes beat{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.15);}
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
 }
+
+
+/* =========================
+   画像のふわふわアニメーション
+========================= */
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="card">
 
-<div class="heart">💙</div>
 
-<img src="micky.png" class="micky" alt="ミッキー">
+    <!-- ハート -->
+    <div class="heart">
+        💙
+    </div>
 
-<h1>ちーちゃんに会えるまで</h1>
 
-<p class="subtitle">早く会いたい!</p>
+    <!-- タイトル -->
+    <h1>
+        ちーちゃんに会えるまで
+    </h1>
 
-<div id="countdown"></div>
 
-<p class="message">
-毎日頑張ってるちーちゃんへ。<br>
-あと少し、一緒に頑張ろうね
-</p>
+    <!-- サブタイトル -->
+    <p class="subtitle">
+        早く会いたい!
+    </p>
+
+
+    <!-- 画像 -->
+    <img
+        src="micky.png"
+        class="micky"
+        alt="ちーちゃんに会えるまでのイラスト"
+    >
+
+
+    <!-- カウントダウン -->
+    <div id="countdown"></div>
+
+
+    <!-- メッセージ -->
+    <p class="message">
+
+        毎日頑張ってるちーちゃんへ。<br>
+
+        あと少し、一緒に頑張ろうね
+
+    </p>
+
 
 </div>
 
+
+
 <script>
 
-// ↓↓↓ここを変更↓↓↓
-const meetingDate = new Date("2026-09-11T17:00:00");
-// ↑↑↑ここを変更↑↑↑
+
+// ===============================
+// 会える日時
+// ===============================
+
+const meetingDate =
+    new Date("2026-09-11T17:00:00");
+
+
+
+// ===============================
+// カウントダウン
+// ===============================
 
 function updateCountdown(){
 
@@ -101,25 +252,72 @@ function updateCountdown(){
 
     const diff = meetingDate - now;
 
+
+    // 会える日になったら
     if(diff <= 0){
+
         document.getElementById("countdown").innerHTML =
-        "🎉 今日会えるね！愛してる";
+        "🎉 今日会えるね！<br>愛してる 💙";
+
         return;
     }
 
-    const days = Math.floor(diff/(1000*60*60*24));
-    const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
-    const seconds = Math.floor((diff%(1000*60))/1000);
 
+    // 日
+    const days =
+        Math.floor(
+            diff /
+            (1000*60*60*24)
+        );
+
+
+    // 時間
+    const hours =
+        Math.floor(
+            (diff%(1000*60*60*24)) /
+            (1000*60*60)
+        );
+
+
+    // 分
+    const minutes =
+        Math.floor(
+            (diff%(1000*60*60)) /
+            (1000*60)
+        );
+
+
+    // 秒
+    const seconds =
+        Math.floor(
+            (diff%(1000*60)) /
+            1000
+        );
+
+
+    // 表示
     document.getElementById("countdown").innerHTML =
-    `${days}日<br>${hours}時間 ${minutes}分 ${seconds}秒`;
+
+        `${days}日<br>
+        ${hours}時間 ${minutes}分 ${seconds}秒`;
+
 }
 
+
+// 最初に実行
 updateCountdown();
-setInterval(updateCountdown,1000);
+
+
+// 1秒ごとに更新
+setInterval(
+    updateCountdown,
+    1000
+);
+
 
 </script>
 
+
 </body>
+
 </html>
