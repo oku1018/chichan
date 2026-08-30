@@ -77,6 +77,44 @@ body{
     animation:float 3s ease-in-out infinite;
 }
 
+/* =========================
+   大量に降るハート
+========================= */
+
+.rain-heart{
+    position:fixed;
+    top:-50px;
+
+    font-size:25px;
+
+    pointer-events:none;
+
+    z-index:300;
+
+    animation:heartRain linear forwards;
+}
+
+
+@keyframes heartRain{
+
+    0%{
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity:0.9;
+    }
+
+}
+
 
 /* =========================
    タイトル
@@ -759,6 +797,75 @@ const timer =
         }
 
     },1000);
+
+
+/* ==============================
+   好きボタン
+============================== */
+
+const likeButton =
+    document.getElementById("likeButton");
+
+const likeCount =
+    document.getElementById("likeCount");
+
+let likes = 0;
+
+
+likeButton.addEventListener(
+    "click",
+    function(){
+
+        /* 好きの数を増やす */
+        likes++;
+
+        likeCount.textContent = likes;
+
+
+        /* ボタンの位置を取得 */
+        const rect =
+            likeButton.getBoundingClientRect();
+
+
+        /* ハートを作る */
+        const heart =
+            document.createElement("div");
+
+        heart.classList.add(
+            "flying-heart"
+        );
+
+        heart.textContent =
+            Math.random() > 0.5
+            ? "💙"
+            : "💗";
+
+
+        /* ボタンの真上から出す */
+        heart.style.left =
+            rect.left +
+            rect.width / 2 +
+            "px";
+
+        heart.style.top =
+            rect.top +
+            "px";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        /* アニメーション終了後削除 */
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },1300);
+
+    }
+);
 
 
 </script>
